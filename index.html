@@ -7,14 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2E7D32;
-            --secondary: #4CAF50;
-            --accent: #FFA726;
-            --light: #F1F8F4;
-            --white: #fdeaaa;
+            --primary: #1B5E20;
+            --secondary: #43A047;
+            --accent: #FF6F00;
+            --light: #E8F5E9;
+            --white: #FFFFFF;
             --dark: #1B5E20;
-            --text: #2C3E50;
-            --milk-cream: #FFF9E6;
+            --text: #263238;
+            --milk-cream: #FFFDE7;
+            --gradient-green: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #43A047 100%);
         }
 
         * {
@@ -33,12 +34,12 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            background: var(--gradient-green);
             padding: 1.2rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 25px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 4px 20px rgba(27, 94, 32, 0.3);
             animation: slideDown 0.7s ease-out;
         }
 
@@ -142,8 +143,8 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(46, 125, 50, 0.95) 0%, rgba(76, 175, 80, 0.95) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="milk" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="15" fill="%234CAF50" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23milk)"/></svg>');
+            background: var(--gradient-green),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="milk" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="15" fill="%23FFFFFF" opacity="0.05"/></pattern></defs><rect width="200" height="200" fill="url(%23milk)"/></svg>');
             padding: 8rem 0 7rem;
             text-align: center;
             position: relative;
@@ -358,14 +359,14 @@
 
         /* Price Section */
         .price-box {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-green);
             padding: 4.5rem 3rem;
             border-radius: 35px;
             text-align: center;
             color: var(--white);
             max-width: 700px;
             margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(46, 125, 50, 0.35);
+            box-shadow: 0 20px 60px rgba(27, 94, 32, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -487,7 +488,7 @@
 
         .submit-button {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-green);
             color: var(--white);
             padding: 1.4rem;
             font-size: 1.3rem;
@@ -496,16 +497,16 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.35);
         }
 
         .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 15px 40px rgba(27, 94, 32, 0.5);
         }
 
         .order-note {
-            background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CD 100%);
+            background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
             padding: 2rem;
             border-radius: 15px;
             border-left: 5px solid var(--accent);
@@ -513,7 +514,7 @@
             text-align: center;
             font-weight: 600;
             font-size: 1.15rem;
-            color: #856404;
+            color: #F57F17;
         }
 
         /* Contact Section */
@@ -526,7 +527,7 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
@@ -537,7 +538,7 @@
 
         .contact-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 45px rgba(46, 125, 50, 0.15);
+            box-shadow: 0 15px 45px rgba(27, 94, 32, 0.2);
             border-color: var(--secondary);
         }
 
@@ -561,7 +562,7 @@
         }
 
         .contact-card a {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
@@ -573,7 +574,7 @@
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            background: var(--gradient-green);
             color: var(--white);
             padding: 3.5rem 0;
             text-align: center;
@@ -592,42 +593,145 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
+                line-height: 1.3;
             }
 
             .hero p {
-                font-size: 1.15rem;
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 2rem;
             }
 
             .section-title {
-                font-size: 2.3rem;
+                font-size: 1.8rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .tagline {
+                font-size: 0.8rem;
+            }
+
+            .milk-icon {
+                font-size: 2rem;
             }
 
             nav ul {
-                gap: 1rem;
+                gap: 0.8rem;
                 justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0;
             }
 
             .price {
-                font-size: 3.5rem;
+                font-size: 3rem;
+            }
+
+            .price-box {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .price-box h3 {
+                font-size: 1.5rem;
             }
 
             .header-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 1rem;
             }
 
             .logo-section {
-                flex-direction: column;
+                flex-direction: row;
+                gap: 0.8rem;
             }
 
             .order-form {
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .about-content {
-                padding: 2.5rem;
+                padding: 2rem;
+            }
+
+            .about-content p {
+                font-size: 1.05rem;
+            }
+
+            .quality-icon {
+                font-size: 2.5rem;
+            }
+
+            .quality-card p {
+                font-size: 1.05rem;
+            }
+
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 1rem 2.5rem;
+            }
+
+            .contact-icon {
+                font-size: 2.5rem;
+            }
+
+            .step-number {
+                font-size: 2.5rem;
+            }
+
+            .step p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
             }
         }
 
