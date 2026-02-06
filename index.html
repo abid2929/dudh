@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বসুন্ধরা Fresh Milk Delivery - খাঁটি দুধ ডেলিভারি</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --secondary: #4CAF50;
+            --accent: #FFA726;
+            --light: #F1F8F4;
+            --white: #fdeaaa;
+            --dark: #1B5E20;
+            --text: #2C3E50;
+            --milk-cream: #FFF9E6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(46, 125, 50, 0.2);
+            animation: slideDown 0.7s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .milk-icon {
+            font-size: 3rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo-text h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .tagline {
+            color: var(--milk-cream);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.95) 0%, rgba(76, 175, 80, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="milk" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="15" fill="%234CAF50" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23milk)"/></svg>');
+            padding: 8rem 0 7rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🥛';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            font-size: 25rem;
+            opacity: 0.08;
+            transform: rotate(15deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '🐄';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            font-size: 20rem;
+            opacity: 0.06;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(15deg);
+            }
+            50% {
+                transform: translateY(-40px) rotate(25deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--milk-cream);
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 1.2rem 3.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px rgba(255, 167, 38, 0.4);
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 12px 35px rgba(255, 167, 38, 0.4);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 18px 45px rgba(255, 167, 38, 0.6);
+            }
+        }
+
+        .cta-button:hover {
+            background: #FF9800;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 152, 0, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5.5rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section:nth-child(even) {
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            padding-bottom: 1.2rem;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.15);
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.25rem;
+            line-height: 2.2;
+            color: var(--text);
+            margin-bottom: 1.8rem;
+        }
+
+        /* Quality Section */
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quality-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+        }
+
+        .quality-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 50px rgba(46, 125, 50, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .quality-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .quality-card p {
+            font-size: 1.2rem;
+            color: var(--text);
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        /* Price Section */
+        .price-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 4.5rem 3rem;
+            border-radius: 35px;
+            text-align: center;
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(46, 125, 50, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-box::before {
+            content: '৳';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            font-size: 18rem;
+            opacity: 0.08;
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .price-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin: 1.5rem 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-note {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            line-height: 2;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        /* Order Steps */
+        .order-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 3.5rem 0;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
+            padding: 2.5rem 1.5rem;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .step:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 12px 35px rgba(46, 125, 50, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+        }
+
+        .step p {
+            font-size: 1.15rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Order Form */
+        .order-form {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 25px;
+            max-width: 650px;
+            margin: 3rem auto 0;
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.12);
+            border: 3px solid var(--light);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2.5px solid #E0E0E0;
+            border-radius: 12px;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            background: #FAFAFA;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+            background: var(--white);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 1.4rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.4);
+        }
+
+        .order-note {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CD 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            margin-top: 2.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #856404;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(46, 125, 50, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .contact-card a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: var(--white);
+            padding: 3.5rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.15rem;
+            line-height: 2;
+        }
+
+        footer p:first-child {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .price {
+                font-size: 3.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-section {
+                flex-direction: column;
+            }
+
+            .order-form {
+                padding: 2rem;
+            }
+
+            .about-content {
+                padding: 2.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Success Animation */
+        @keyframes successPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="milk-icon">🥛</div>
+                    <div class="logo-text">
+                        <h1>বসুন্ধরা Fresh Milk Delivery</h1>
+                        <p class="tagline">আপনার একেবারে কাছেই…</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#quality">দুধের তথ্য</a></li>
+                        <li><a href="#price">মূল্য</a></li>
+                        <li><a href="#order">অর্ডার করুন</a></li>
+                        <li><a href="#contact">যোগাযোগ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>বসুন্ধরায় ১০০% খাঁটি ও<br>ফ্রেশ দুধ ডেলিভারি</h2>
+                <p>প্রতিদিন ভোরে খামার থেকে সংগ্রহ করা<br>
+                <strong>বিশুদ্ধ, নিরাপদ ও স্বাস্থ্যসম্মত দুধ</strong><br>
+                এখন সরাসরি আপনার বাসায়</p>
+                <a href="#order" class="cta-button">📞 এখনই অর্ডার করুন</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">আমাদের সম্পর্কে</h2>
+            <div class="about-content">
+                <p>আমরা বসুন্ধরা আবাসিক এলাকায় নিয়মিত ফ্রেশ গরুর দুধ সরবরাহ করি।</p>
+                <p>আমাদের দুধ সরাসরি খামার থেকে সংগ্রহ করা হয় এবং কোনো প্রকার ভেজাল বা পানি মেশানো হয় না।</p>
+                <p><strong>গ্রাহকের বিশ্বাস ও স্বাস্থ্যই আমাদের প্রথম অগ্রাধিকার।</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section id="quality">
+        <div class="container">
+            <h2 class="section-title">আমাদের দুধ কেন আলাদা?</h2>
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <span class="quality-icon">✅</span>
+                    <p>১০০% খাঁটি ও ফ্রেশ দুধ</p>
+                </div>
+                <div class="quality-card">
+                    <span class="quality-icon">💧</span>
+                    <p>কোনো ভেজাল বা পানি মেশানো নয়</p>
+                </div>
+                <div class="quality-card">
+                    <span class="quality-icon">🏥</span>
+                    <p>স্বাস্থ্যসম্মত পরিবেশে সংগ্রহ</p>
+                </div>
+                <div class="quality-card">
+                    <span class="quality-icon">👶</span>
+                    <p>শিশু ও বৃদ্ধদের জন্য নিরাপদ</p>
+                </div>
+                <div class="quality-card">
+                    <span class="quality-icon">🚚</span>
+                    <p>প্রতিদিন হোম ডেলিভারি</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Section -->
+    <section id="price">
+        <div class="container">
+            <h2 class="section-title">দুধের মূল্য</h2>
+            <div class="price-box">
+                <h3>💰 প্রতি লিটার দুধ</h3>
+                <div class="price">১০০ টাকা</div>
+                <div class="price-note">
+                    <p>📍 শুধুমাত্র বসুন্ধরা আবাসিক এলাকায়</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order">
+        <div class="container">
+            <h2 class="section-title">কিভাবে অর্ডার করবেন?</h2>
+            <div class="order-steps">
+                <div class="step">
+                    <div class="step-number">1️⃣</div>
+                    <p>আপনার নাম লিখুন</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2️⃣</div>
+                    <p>মোবাইল নাম্বার দিন</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3️⃣</div>
+                    <p>বাসার ঠিকানা লিখুন (বসুন্ধরা)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4️⃣</div>
+                    <p>কত লিটার দুধ লাগবে লিখুন</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5️⃣</div>
+                    <p>সাবমিট করুন</p>
+                </div>
+            </div>
+
+            <div class="order-form">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">আপনার নাম *</label>
+                        <input type="text" id="name" name="name" required placeholder="নাম লিখুন">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">মোবাইল নাম্বার *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="০১XXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">বাসার ঠিকানা (বসুন্ধরা) *</label>
+                        <textarea id="address" name="address" rows="3" required placeholder="ব্লক, রোড, হাউস নাম্বার"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">কত লিটার দুধ প্রয়োজন? *</label>
+                        <input type="number" id="quantity" name="quantity" min="1" required placeholder="যেমন: 2">
+                    </div>
+                    <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
+                </form>
+                <div class="order-note">
+                    📞 অর্ডার কনফার্ম করতে আমরা ফোন করবো।
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">যোগাযোগ করুন</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>ফোন</h3>
+                    <p><a href="tel:+8801858508254">+880 1858-508254</a></p>
+                    <p><a href="tel:+8801775776473">+880 1775-776473</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>এলাকা</h3>
+                    <p>বসুন্ধরা রেসিডেনশিয়াল এরিয়া<br>ঢাকা</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Bashundhara Fresh Milk Delivery</p>
+            <p>বিশুদ্ধ দুধ, বিশ্বস্ত সেবা</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler with WhatsApp integration
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            // Create WhatsApp message
+            const message = `🥛 *নতুন দুধের অর্ডার*\n\n` +
+                          `👤 নাম: ${name}\n` +
+                          `📞 ফোন: ${phone}\n` +
+                          `📍 ঠিকানা: ${address}\n` +
+                          `🥛 পরিমাণ: ${quantity} লিটার\n\n` +
+                          `দয়া করে অর্ডার কনফার্ম করুন।`;
+            
+            // WhatsApp number (replace with your actual number)
+            // Format: country code + number (without + or spaces)
+            const whatsappNumber = '8801775776473'; // WhatsApp contact number
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার WhatsApp-এ পাঠানো হচ্ছে।\n\nপরিমাণ: ${quantity} লিটার`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
