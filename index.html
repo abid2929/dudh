@@ -61,16 +61,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
         }
 
         .nav-links {
@@ -158,7 +148,19 @@
             font-weight: bold;
             font-size: 1.2rem;
             transition: all 0.3s;
-            animation: bounce 2s infinite;
+            animation: pulse-cta 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes pulse-cta {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+            }
         }
 
         @keyframes bounce {
@@ -175,7 +177,8 @@
 
         .cta-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.6);
+            animation: none;
         }
 
         /* Section Styles */
@@ -257,16 +260,6 @@
         .feature-card .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
         }
 
         .feature-card h3 {
@@ -282,7 +275,6 @@
             text-align: center;
             max-width: 500px;
             margin: 2rem auto;
-            animation: pulse 2s infinite;
         }
 
         .price-card .price {
@@ -415,7 +407,6 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            animation: glow 2s infinite;
         }
 
         @keyframes glow {
@@ -529,6 +520,51 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            transform: scale(1.1);
+            box-shadow: 0 6px 35px rgba(37, 211, 102, 0.9);
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -542,6 +578,7 @@
                 <li><a href="#home">হোম</a></li>
                 <li><a href="#about">আমাদের সম্পর্কে</a></li>
                 <li><a href="#info">দুধের তথ্য</a></li>
+                <li><a href="#doi-info">দই এর তথ্য</a></li>
                 <li><a href="#price">মূল্য</a></li>
                 <li><a href="#order">অর্ডার করুন</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
@@ -601,6 +638,29 @@
         </div>
     </section>
 
+    <section id="doi-info">
+        <div class="container">
+            <h2>🍨 বগুড়ার আসল দই</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 2; margin-bottom: 1.5rem;">
+                    বাংলাদেশের ঐতিহ্যবাহী বগুড়ার বিখ্যাত দই এখন বসুন্ধরায়! 
+                    সম্পূর্ণ খাঁটি দুধ থেকে তৈরি, ঐতিহ্যবাহী পদ্ধতিতে প্রস্তুতকৃত এই দই স্বাদে ও গুণে অতুলনীয়।
+                </p>
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">দই এর বৈশিষ্ট্য</h3>
+                    <ul style="list-style: none; padding: 0; text-align: left; max-width: 600px; margin: 0 auto;">
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ ১০০% খাঁটি গরুর দুধ থেকে তৈরি</li>
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ কোনো প্রকার কেমিকেল বা প্রিজারভেটিভ মুক্ত</li>
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ ঐতিহ্যবাহী মাটির হাঁড়িতে তৈরি</li>
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ মিষ্টি ও টক স্বাদের নিখুঁত সমন্বয়</li>
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ স্বাস্থ্যকর ও পুষ্টিগুণ সমৃদ্ধ</li>
+                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ তাজা অবস্থায় হোম ডেলিভারি</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="price">
         <div class="container">
             <h2>দুধ ও দই'য়ের মূল্য</h2>
@@ -621,19 +681,19 @@
             <form class="order-form" onsubmit="handleSubmit(event)">
                 <div class="product-selection">
                     <label class="product-option">
-                        <input type="radio" name="product" value="milk" checked>
+                        <input type="radio" name="product" value="milk">
                         <div class="product-content">
                             <div class="product-icon">🥛</div>
                             <div class="product-name">দুধ</div>
-                            <div class="product-price">প্রতি লিটার ১০০৳</div>
+                            <div class="product-price">১০০৳ লিটার</div>
                         </div>
                     </label>
                     <label class="product-option">
                         <input type="radio" name="product" value="doi">
                         <div class="product-content">
-                            <div class="product-icon">🍶</div>
-                            <div class="product-name">দই</div>
-                            <div class="product-price">দই হাঁড়ি ২৮০৳/৩৫০৳</div>
+                            <div class="product-icon">🍨</div>
+                            <div class="product-name">দই </div>
+                            <div class="product-price">২৮০৳/৩৫০৳ হাঁড়ি</div>
                         </div>
                     </label>
                 </div>
@@ -654,8 +714,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="quantity">কত লিটার প্রয়োজন? *</label>
-                    <input type="number" id="quantity" name="quantity" min="1" required placeholder="লিটার সংখ্যা">
+                    <label for="quantity" id="quantity-label">কত লিটার/হাঁড়ি প্রয়োজন? *</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required placeholder="সংখ্যা লিখুন">
                 </div>
 
                 <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
@@ -685,23 +745,68 @@
         </div>
     </section>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/8801775776473?text=আসসালামু%20আলাইকুম!%20আমি%20দুধ/দই%20অর্ডার%20করতে%20চাই।" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="WhatsApp সাপোর্ট">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32" fill="white">
+            <path d="M16 0C7.164 0 0 7.163 0 16c0 2.828.738 5.482 2.02 7.786L.07 31.536l8.037-2.106C10.337 30.752 13.09 32 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.547 0-4.95-.718-7-1.964l-.503-.304-5.203 1.364 1.39-5.072-.332-.52C2.824 20.872 2 18.507 2 16 2 8.28 8.28 2 16 2s14 6.28 14 14-6.28 13.333-14 13.333z"/>
+            <path d="M23.36 19.458c-.397-.199-2.347-1.158-2.71-1.29-.364-.132-.629-.198-.893.199-.264.397-1.023 1.29-1.255 1.555-.231.264-.463.298-.86.1-.398-.199-1.68-.619-3.198-1.973-1.182-1.054-1.98-2.355-2.212-2.752-.231-.397-.025-.612.174-.81.179-.178.397-.463.596-.695.198-.231.264-.397.397-.662.132-.264.066-.496-.033-.695-.1-.198-.893-2.152-1.224-2.946-.322-.773-.65-.668-.893-.68-.231-.012-.496-.015-.76-.015s-.695.1-1.058.496c-.364.397-1.388 1.356-1.388 3.31s1.421 3.838 1.619 4.103c.198.264 2.8 4.273 6.782 5.992.948.41 1.688.654 2.265.837.951.302 1.816.259 2.5.157.762-.114 2.347-.959 2.678-1.885.331-.926.331-1.72.232-1.885-.1-.165-.364-.264-.76-.463z"/>
+        </svg>
+    </a>
+
     <footer>
         <p>&copy; 2026 Bashundhara Fresh Milk Delivery</p>
         <p><strong>বিশুদ্ধ দুধ, বিশ্বস্ত সেবা</strong></p>
     </footer>
 
     <script>
+        // Update quantity label based on product selection
+        document.querySelectorAll('input[name="product"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const quantityLabel = document.getElementById('quantity-label');
+                const quantityInput = document.getElementById('quantity');
+                
+                if (this.value === 'milk') {
+                    quantityLabel.textContent = 'কত লিটার প্রয়োজন? *';
+                    quantityInput.placeholder = 'লিটার সংখ্যা লিখুন';
+                } else {
+                    quantityLabel.textContent = 'কত হাঁড়ি প্রয়োজন? *';
+                    quantityInput.placeholder = 'হাঁড়ির সংখ্যা লিখুন';
+                }
+            });
+        });
+
         function handleSubmit(event) {
             event.preventDefault();
             
-            const product = document.querySelector('input[name="product"]:checked').value;
-            const productName = product === 'milk' ? 'দুধ' : 'দই';
+            // Check if product is selected
+            const productRadios = document.querySelectorAll('input[name="product"]');
+            let productSelected = false;
+            let selectedProduct = null;
+            
+            productRadios.forEach(radio => {
+                if (radio.checked) {
+                    productSelected = true;
+                    selectedProduct = radio.value;
+                }
+            });
+            
+            if (!productSelected) {
+                alert('⚠️ অনুগ্রহ করে দুধ অথবা দই সিলেক্ট করুন!');
+                return;
+            }
+            
+            const productName = selectedProduct === 'milk' ? 'দুধ' : 'দই';
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const quantity = document.getElementById('quantity').value;
             
-            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার:\n${quantity} লিটার ${productName}\n\nআমরা শীঘ্রই ${phone} নম্বরে ফোন করে অর্ডার কনফার্ম করবো।`);
+            const quantityText = selectedProduct === 'milk' ? `${quantity} লিটার` : `${quantity} হাঁড়ি`;
+            
+            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার:\n${quantityText} ${productName}\n\nআমরা শীঘ্রই ${phone} নম্বরে ফোন করে অর্ডার কনফার্ম করবো।`);
             
             // Reset form
             event.target.reset();
