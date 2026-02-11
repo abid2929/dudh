@@ -409,6 +409,11 @@
             transition: all 0.3s;
         }
 
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         @keyframes glow {
             0%, 100% {
                 box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
@@ -418,7 +423,7 @@
             }
         }
 
-        .submit-button:hover {
+        .submit-button:hover:not(:disabled) {
             transform: scale(1.05);
             box-shadow: 0 10px 40px rgba(102, 126, 234, 0.6);
         }
@@ -428,6 +433,22 @@
             margin-top: 1rem;
             color: #666;
             font-size: 0.9rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
         }
 
         /* Contact Section */
@@ -665,7 +686,7 @@
         <div class="container">
             <h2>দুধ ও দই'য়ের মূল্য</h2>
             <div class="price-card">
-                <div class="icon"></div>
+                <div class="icon">🥛</div>
                 <div>প্রতি লিটার দুধ</div>
                 <div class="price">১০০৳</div>
                 <div style="margin-top: 2rem;">প্রতি হাঁড়ি দই</div>
@@ -678,10 +699,14 @@
     <section id="order">
         <div class="container">
             <h2>অর্ডার করুন</h2>
-            <form class="order-form" onsubmit="handleSubmit(event)">
+            <form class="order-form" id="orderForm" onsubmit="handleSubmit(event)">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="4cedb9b1-50ec-48f2-95a6-7a78566fb400">
+                
+                <!-- Product Selection -->
                 <div class="product-selection">
                     <label class="product-option">
-                        <input type="radio" name="product" value="milk">
+                        <input type="radio" name="product" value="দুধ" required>
                         <div class="product-content">
                             <div class="product-icon">🥛</div>
                             <div class="product-name">দুধ</div>
@@ -689,10 +714,10 @@
                         </div>
                     </label>
                     <label class="product-option">
-                        <input type="radio" name="product" value="doi">
+                        <input type="radio" name="product" value="দই" required>
                         <div class="product-content">
                             <div class="product-icon">🍨</div>
-                            <div class="product-name">দই </div>
+                            <div class="product-name">দই</div>
                             <div class="product-price">২৮০৳/৩৫০৳ হাঁড়ি</div>
                         </div>
                     </label>
@@ -705,7 +730,7 @@
 
                 <div class="form-group">
                     <label for="phone">মোবাইল নাম্বার *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="০১XXXXXXXXX">
+                    <input type="tel" id="phone" name="phone" required placeholder="০১XXXXXXXXX" pattern="01[0-9]{9}">
                 </div>
 
                 <div class="form-group">
@@ -718,9 +743,13 @@
                     <input type="number" id="quantity" name="quantity" min="1" required placeholder="সংখ্যা লিখুন">
                 </div>
 
-                <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
+                <button type="submit" class="submit-button" id="submitBtn">অর্ডার সাবমিট করুন</button>
                 
-                <p class="form-note">📞 আপনার অর্ডার WhatsApp এ পাঠানো হবে।</p>
+                <div class="success-message" id="successMessage">
+                    ✅ অর্ডার সফলভাবে সাবমিট হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।
+                </div>
+                
+                <p class="form-note">📧 আপনার অর্ডার সরাসরি Gmail এ পাঠানো হবে।</p>
             </form>
         </div>
     </section>
@@ -768,7 +797,7 @@
                 const quantityLabel = document.getElementById('quantity-label');
                 const quantityInput = document.getElementById('quantity');
                 
-                if (this.value === 'milk') {
+                if (this.value === 'দুধ') {
                     quantityLabel.textContent = 'কত লিটার প্রয়োজন? *';
                     quantityInput.placeholder = 'লিটার সংখ্যা লিখুন';
                 } else {
@@ -778,51 +807,68 @@
             });
         });
 
-        function handleSubmit(event) {
+        async function handleSubmit(event) {
             event.preventDefault();
             
-            // Check if product is selected
-            const productRadios = document.querySelectorAll('input[name="product"]');
-            let productSelected = false;
-            let selectedProduct = null;
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
             
-            productRadios.forEach(radio => {
-                if (radio.checked) {
-                    productSelected = true;
-                    selectedProduct = radio.value;
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'সাবমিট হচ্ছে...';
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            try {
+                // Submit to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                    
+                    // Also send to WhatsApp as backup
+                    const product = formData.get('product');
+                    const name = formData.get('name');
+                    const phone = formData.get('phone');
+                    const address = formData.get('address');
+                    const quantity = formData.get('quantity');
+                    
+                    const quantityText = product === 'দুধ' ? `${quantity} লিটার` : `${quantity} হাঁড়ি`;
+                    const message = `আসসালামু আলাইকুম!\n\n🛒 নতুন অর্ডার:\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📍 ঠিকানা: ${address}\n\n🥛 পণ্য: ${product}\n📦 পরিমাণ: ${quantityText}\n\nঅনুগ্রহ করে অর্ডার কনফার্ম করুন।`;
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappURL = `https://wa.me/8801775776473?text=${encodedMessage}`;
+                    
+                    // Open WhatsApp in new tab
+                    setTimeout(() => {
+                        window.open(whatsappURL, '_blank');
+                    }, 1000);
+                } else {
+                    alert('দুঃখিত! অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
                 }
-            });
-            
-            if (!productSelected) {
-                alert('⚠️ অনুগ্রহ করে দুধ অথবা দই সিলেক্ট করুন!');
-                return;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('দুঃখিত! অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'অর্ডার সাবমিট করুন';
             }
-            
-            const productName = selectedProduct === 'milk' ? 'দুধ' : 'দই';
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const quantity = document.getElementById('quantity').value;
-            
-            const quantityText = selectedProduct === 'milk' ? `${quantity} লিটার` : `${quantity} হাঁড়ি`;
-            
-            // Create WhatsApp message
-            const message = `আসসালামু আলাইকুম!\n\n🛒 নতুন অর্ডার:\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📍 ঠিকানা: ${address}\n\n🥛 পণ্য: ${productName}\n📦 পরিমাণ: ${quantityText}\n\nঅনুগ্রহ করে অর্ডার কনফার্ম করুন।`;
-            
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // WhatsApp URL with the specific number
-            const whatsappURL = `https://wa.me/8801775776473?text=${encodedMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappURL, '_blank');
-            
-            // Show confirmation
-            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার WhatsApp এ পাঠানো হচ্ছে...`);
-            
-            // Reset form
-            event.target.reset();
         }
 
         // Add scroll animation
