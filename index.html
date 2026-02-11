@@ -3,23 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বসুন্ধরা Fresh Milk Delivery - খাঁটি দুধ ডেলিভারি</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
- <link rel="icon" href="https://i.pinimg.com/736x/44/7c/4f/447c4f82295eae6f8318285c58af5b6a.jpg"> 
-    
+    <title>বসুন্ধরা Fresh Milk Delivery</title>
     <style>
-        :root {
-            --primary: #1B5E20;
-            --secondary: #43A047;
-            --accent: #FF6F00;
-            --light: #E8F5E9;
-            --white: #FFFFFF;
-            --dark: #1B5E20;
-            --text: #263238;
-            --milk-cream: #FFFDE7;
-            --gradient-green: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #43A047 100%);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -27,22 +12,26 @@
         }
 
         body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background: var(--light);
-            color: var(--text);
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        /* Header Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
         header {
-            background: var(--gradient-green);
-            padding: 1.2rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(27, 94, 32, 0.3);
-            animation: slideDown 0.7s ease-out;
+            animation: slideDown 0.5s ease-out;
         }
 
         @keyframes slideDown {
@@ -56,203 +45,73 @@
             }
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-content {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
             flex-wrap: wrap;
-            gap: 1.5rem;
         }
 
-        .logo-section {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
+            animation: pulse 2s infinite;
         }
 
-        .milk-icon {
-            font-size: 3rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
+        @keyframes pulse {
             0%, 100% {
-                transform: translateY(0);
+                transform: scale(1);
             }
             50% {
-                transform: translateY(-10px);
+                transform: scale(1.05);
             }
         }
 
-        .logo-text h1 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--white);
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.2rem;
-        }
-
-        .tagline {
-            color: var(--milk-cream);
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             flex-wrap: wrap;
         }
 
-        nav a {
-            color: var(--white);
+        .nav-links a {
             text-decoration: none;
+            color: #333;
             font-weight: 500;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             position: relative;
-            padding: 0.5rem 0;
         }
 
-        nav a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-            border-radius: 2px;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
         }
 
-        nav a:hover::after {
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a:hover::after {
             width: 100%;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-green),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><defs><pattern id="milk" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="15" fill="%23FFFFFF" opacity="0.05"/></pattern></defs><rect width="200" height="200" fill="url(%23milk)"/></svg>');
-            padding: 8rem 0 7rem;
+            background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '🥛';
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            font-size: 25rem;
-            opacity: 0.08;
-            transform: rotate(15deg);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '🐄';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            font-size: 20rem;
-            opacity: 0.06;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(15deg);
-            }
-            50% {
-                transform: translateY(-40px) rotate(25deg);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            font-weight: 900;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            color: var(--milk-cream);
-            max-width: 850px;
-            margin: 0 auto 3rem;
-            line-height: 1.9;
-            font-weight: 400;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 1.2rem 3.5rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 60px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 12px 35px rgba(255, 167, 38, 0.4);
-            animation: pulse 2.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 12px 35px rgba(255, 167, 38, 0.4);
-            }
-            50% {
-                transform: scale(1.06);
-                box-shadow: 0 18px 45px rgba(255, 167, 38, 0.6);
-            }
-        }
-
-        .cta-button:hover {
-            background: #FF9800;
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(255, 152, 0, 0.5);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5.5rem 0;
+            padding: 6rem 2rem;
             animation: fadeIn 1s ease-out;
         }
 
@@ -265,475 +124,403 @@
             }
         }
 
-        section:nth-child(even) {
-            background: var(--white);
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
+        .hero h1 {
             font-size: 3rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 3.5rem;
-            position: relative;
-            padding-bottom: 1.2rem;
-            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease-out;
         }
 
-        .section-title::after {
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styles */
+        section {
+            background: white;
+            margin: 2rem auto;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section h2 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
-            border-radius: 3px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
 
-        /* About Section */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
-            padding: 3.5rem;
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.15);
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.25rem;
-            line-height: 2.2;
-            color: var(--text);
-            margin-bottom: 1.8rem;
-        }
-
-        /* Quality Section */
-        .quality-grid {
+        /* Features Grid */
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .quality-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem 2rem;
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s;
+            animation: scaleIn 0.5s ease-out;
         }
 
-        .quality-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
-        .quality-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 50px rgba(46, 125, 50, 0.2);
-            border-color: var(--secondary);
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        .quality-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: rotate 3s linear infinite;
         }
 
-        .quality-card p {
-            font-size: 1.2rem;
-            color: var(--text);
-            font-weight: 500;
-            line-height: 1.8;
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
         }
 
         /* Price Section */
-        .price-box {
-            background: var(--gradient-green);
-            padding: 4.5rem 3rem;
-            border-radius: 35px;
-            text-align: center;
-            color: var(--white);
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(27, 94, 32, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .price-box::before {
-            content: '৳';
-            position: absolute;
-            top: -60px;
-            right: -60px;
-            font-size: 18rem;
-            opacity: 0.08;
-            font-weight: 900;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .price-box h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .price {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            color: var(--accent);
-            margin: 1.5rem 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .price-note {
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            line-height: 2;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
+        .price-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
             border-radius: 15px;
-        }
-
-        /* Order Steps */
-        .order-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin: 3.5rem 0;
-        }
-
-        .step {
-            background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
-            padding: 2.5rem 1.5rem;
-            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            max-width: 500px;
+            margin: 2rem auto;
+            animation: pulse 2s infinite;
         }
 
-        .step:hover {
-            transform: scale(1.08) rotate(-2deg);
-            box-shadow: 0 12px 35px rgba(46, 125, 50, 0.15);
-            border-color: var(--secondary);
-        }
-
-        .step-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 1.2rem;
-        }
-
-        .step p {
-            font-size: 1.15rem;
-            color: var(--text);
-            font-weight: 500;
+        .price-card .price {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 1rem 0;
         }
 
         /* Order Form */
         .order-form {
-            background: var(--white);
-            padding: 3.5rem;
-            border-radius: 25px;
-            max-width: 650px;
-            margin: 3rem auto 0;
-            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.12);
-            border: 3px solid var(--light);
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.7rem;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
         }
 
         .form-group input,
+        .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 1.2rem;
-            border: 2.5px solid #E0E0E0;
-            border-radius: 12px;
-            font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            background: #FAFAFA;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
 
         .form-group input:focus,
+        .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
-            background: var(--white);
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            transform: scale(1.02);
+        }
+
+        .product-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-option {
+            background: white;
+            border: 3px solid #ddd;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .product-option input[type="radio"]:checked + .product-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .product-content {
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .product-option input[type="radio"]:checked + .product-content .product-price {
+            color: white;
         }
 
         .submit-button {
             width: 100%;
-            background: var(--gradient-green);
-            color: var(--white);
-            padding: 1.4rem;
-            font-size: 1.3rem;
-            font-weight: 700;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.35);
+            transition: all 0.3s;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
         }
 
         .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(27, 94, 32, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.6);
         }
 
-        .order-note {
-            background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid var(--accent);
-            margin-top: 2.5rem;
+        .form-note {
             text-align: center;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #F57F17;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
+            transition: all 0.3s;
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 45px rgba(27, 94, 32, 0.2);
-            border-color: var(--secondary);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        .contact-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+        .contact-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .contact-card h3 {
-            color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .contact-card p {
-            color: var(--text);
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 1.8;
         }
 
         .contact-card a {
-            color: var(--primary);
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            display: block;
+            margin: 0.5rem 0;
+            transition: all 0.3s;
         }
 
         .contact-card a:hover {
-            color: var(--accent);
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
         }
 
         /* Footer */
         footer {
-            background: var(--gradient-green);
-            color: var(--white);
-            padding: 3.5rem 0;
+            background: rgba(255, 255, 255, 0.95);
             text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #666;
         }
 
         footer p {
-            font-size: 1.15rem;
-            line-height: 2;
+            margin: 0.5rem 0;
         }
 
-        footer p:first-child {
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 0 3rem;
-            }
-
-            .hero h2 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                line-height: 1.7;
-                margin-bottom: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .logo-text h1 {
-                font-size: 1.3rem;
-            }
-
-            .tagline {
-                font-size: 0.8rem;
-            }
-
-            .milk-icon {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            nav ul {
-                gap: 0.8rem;
-                justify-content: center;
-                font-size: 0.9rem;
+            .hero p {
+                font-size: 1rem;
             }
 
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.3rem 0;
-            }
-
-            .price {
-                font-size: 3rem;
-            }
-
-            .price-box {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .price-box h3 {
-                font-size: 1.5rem;
-            }
-
-            .header-content {
+            nav {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
                 gap: 1rem;
             }
 
-            .logo-section {
-                flex-direction: row;
-                gap: 0.8rem;
+            .product-selection {
+                grid-template-columns: 1fr;
             }
 
-            .order-form {
-                padding: 1.5rem;
-            }
-
-            .about-content {
-                padding: 2rem;
-            }
-
-            .about-content p {
-                font-size: 1.05rem;
-            }
-
-            .quality-icon {
-                font-size: 2.5rem;
-            }
-
-            .quality-card p {
-                font-size: 1.05rem;
-            }
-
-            .cta-button {
-                font-size: 1.1rem;
-                padding: 1rem 2.5rem;
-            }
-
-            .contact-icon {
-                font-size: 2.5rem;
-            }
-
-            .step-number {
-                font-size: 2.5rem;
-            }
-
-            .step p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 3.5rem 0;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .logo-text h1 {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                font-size: 1rem;
-                padding: 0.9rem 2rem;
-            }
-
-            nav ul {
-                gap: 0.5rem;
-            }
-
-            nav a {
-                font-size: 0.85rem;
+            section h2 {
+                font-size: 2rem;
             }
         }
 
@@ -741,179 +528,155 @@
         html {
             scroll-behavior: smooth;
         }
-
-        /* Success Animation */
-        @keyframes successPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="milk-icon">🥛</div>
-                    <div class="logo-text">
-                        <h1>বসুন্ধরা Fresh Milk Delivery</h1>
-                        <p class="tagline">আপনার একেবারে কাছেই…</p>
-                    </div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">হোম</a></li>
-                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                        <li><a href="#quality">দুধের তথ্য</a></li>
-                        <li><a href="#price">মূল্য</a></li>
-                        <li><a href="#order">অর্ডার করুন</a></li>
-                        <li><a href="#contact">যোগাযোগ</a></li>
-                    </ul>
-                </nav>
+        <nav>
+            <div class="logo">
+                🥛 বসুন্ধরা Fresh Milk Delivery
+                <span style="font-size: 0.8rem; color: #999;">আপনার একেবারে কাছেই...</span>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                <li><a href="#info">দুধের তথ্য</a></li>
+                <li><a href="#price">মূল্য</a></li>
+                <li><a href="#order">অর্ডার করুন</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h2>বসুন্ধরায় ১০০% খাঁটি ও<br>ফ্রেশ দুধ ডেলিভারি</h2>
-                <p>প্রতিদিন ভোরে খামার থেকে সংগ্রহ করা<br>
-                <strong>বিশুদ্ধ, নিরাপদ ও স্বাস্থ্যসম্মত দুধ</strong><br>
-                এখন সরাসরি আপনার বাসায়</p>
-                <a href="#order" class="cta-button">📞 এখনই অর্ডার করুন</a>
-            </div>
+            <h1>বসুন্ধরায় ১০০% খাঁটি ও ফ্রেশ দুধ ডেলিভারি</h1>
+            <p>প্রতিদিন ভোরে খামার থেকে সংগ্রহ করা বিশুদ্ধ, নিরাপদ ও স্বাস্থ্যসম্মত দুধ এখন সরাসরি আপনার বাসায়</p>
+            <a href="#order" class="cta-button">📞 এখনই অর্ডার করুন</a>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title">আমাদের সম্পর্কে</h2>
-            <div class="about-content">
-                <p>আমরা বসুন্ধরা আবাসিক এলাকায় নিয়মিত ফ্রেশ গরুর দুধ সরবরাহ করি।</p>
-                <p>আমাদের দুধ সরাসরি খামার থেকে সংগ্রহ করা হয় এবং কোনো প্রকার ভেজাল বা পানি মেশানো হয় না।</p>
-                <p><strong>গ্রাহকের বিশ্বাস ও স্বাস্থ্যই আমাদের প্রথম অগ্রাধিকার।</strong></p>
-            </div>
+            <h2>আমাদের সম্পর্কে</h2>
+            <p style="text-align: center; font-size: 1.2rem; line-height: 2; max-width: 800px; margin: 0 auto;">
+                আমরা বসুন্ধরা আবাসিক এলাকায় নিয়মিত ফ্রেশ গরুর দুধ সরবরাহ করি।
+                আমাদের দুধ সরাসরি খামার থেকে সংগ্রহ করা হয় এবং কোনো প্রকার ভেজাল বা পানি মেশানো হয় না।
+                গ্রাহকের বিশ্বাস ও স্বাস্থ্যই আমাদের প্রথম অগ্রাধিকার।
+            </p>
         </div>
     </section>
 
-    <!-- Quality Section -->
-    <section id="quality">
+    <section id="info">
         <div class="container">
-            <h2 class="section-title">আমাদের দুধ কেন আলাদা?</h2>
-            <div class="quality-grid">
-                <div class="quality-card">
-                    <span class="quality-icon">✅</span>
-                    <p>১০০% খাঁটি ও ফ্রেশ দুধ</p>
+            <h2>আমাদের দুধ কেন আলাদা?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="icon">✅</div>
+                    <h3>১০০% খাঁটি ও ফ্রেশ দুধ</h3>
+                    <p>সম্পূর্ণ খাঁটি এবং তাজা দুধ</p>
                 </div>
-                <div class="quality-card">
-                    <span class="quality-icon">💧</span>
-                    <p>কোনো ভেজাল বা পানি মেশানো নয়</p>
+                <div class="feature-card">
+                    <div class="icon">💧</div>
+                    <h3>কোনো ভেজাল নয়</h3>
+                    <p>পানি বা অন্য কোনো মিশ্রণ নেই</p>
                 </div>
-                <div class="quality-card">
-                    <span class="quality-icon">🏥</span>
-                    <p>স্বাস্থ্যসম্মত পরিবেশে সংগ্রহ</p>
+                <div class="feature-card">
+                    <div class="icon">🏥</div>
+                    <h3>স্বাস্থ্যসম্মত</h3>
+                    <p>পরিষ্কার পরিবেশে সংগ্রহ</p>
                 </div>
-                <div class="quality-card">
-                    <span class="quality-icon">👶</span>
-                    <p>শিশু ও বৃদ্ধদের জন্য নিরাপদ</p>
+                <div class="feature-card">
+                    <div class="icon">👶</div>
+                    <h3>সবার জন্য নিরাপদ</h3>
+                    <p>শিশু ও বৃদ্ধদের জন্য উপযুক্ত</p>
                 </div>
-                <div class="quality-card">
-                    <span class="quality-icon">🚚</span>
-                    <p>প্রতিদিন হোম ডেলিভারি</p>
+                <div class="feature-card">
+                    <div class="icon">🚚</div>
+                    <h3>হোম ডেলিভারি</h3>
+                    <p>প্রতিদিন আপনার দরজায়</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Price Section -->
     <section id="price">
         <div class="container">
-            <h2 class="section-title">দুধের মূল্য</h2>
-            <div class="price-box">
-                <h3>💰 প্রতি লিটার দুধ</h3>
-                <div class="price">১০০ টাকা</div>
-                <div class="price-note">
-                    <p>📍 শুধুমাত্র বসুন্ধরা আবাসিক এলাকায়</p>
-                </div>
+            <h2>দুধের মূল্য</h2>
+            <div class="price-card">
+                <div class="icon">💰</div>
+                <div>প্রতি লিটার দুধ</div>
+                <div class="price">১০০৳</div>
+                <div style="margin-top: 2rem;">প্রতি হাঁড়ি দই</div>
+                <div class="price">২৮০৳/৩৫০৳</div>
+                <p style="margin-top: 1rem;">📍 শুধুমাত্র বসুন্ধরা আবাসিক এলাকায়</p>
             </div>
         </div>
     </section>
 
-    <!-- Order Section -->
     <section id="order">
         <div class="container">
-            <h2 class="section-title">কিভাবে অর্ডার করবেন?</h2>
-            <div class="order-steps">
-                <div class="step">
-                    <div class="step-number">1️⃣</div>
-                    <p>আপনার নাম লিখুন</p>
+            <h2>অর্ডার করুন</h2>
+            <form class="order-form" onsubmit="handleSubmit(event)">
+                <div class="product-selection">
+                    <label class="product-option">
+                        <input type="radio" name="product" value="milk" checked>
+                        <div class="product-content">
+                            <div class="product-icon">🥛</div>
+                            <div class="product-name">দুধ</div>
+                            <div class="product-price">প্রতি লিটার ১০০৳</div>
+                        </div>
+                    </label>
+                    <label class="product-option">
+                        <input type="radio" name="product" value="doi">
+                        <div class="product-content">
+                            <div class="product-icon">🍶</div>
+                            <div class="product-name">দই</div>
+                            <div class="product-price">দই হাঁড়ি ২৮০৳/৩৫০৳</div>
+                        </div>
+                    </label>
                 </div>
-                <div class="step">
-                    <div class="step-number">2️⃣</div>
-                    <p>মোবাইল নাম্বার দিন</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3️⃣</div>
-                    <p>বাসার ঠিকানা লিখুন (বসুন্ধরা)</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4️⃣</div>
-                    <p>কত লিটার দুধ লাগবে লিখুন</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5️⃣</div>
-                    <p>সাবমিট করুন</p>
-                </div>
-            </div>
 
-            <div class="order-form">
-                <form id="orderForm">
-                    <div class="form-group">
-                        <label for="name">আপনার নাম *</label>
-                        <input type="text" id="name" name="name" required placeholder="নাম লিখুন">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">মোবাইল নাম্বার *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="০১XXXXXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">বাসার ঠিকানা (বসুন্ধরা) *</label>
-                        <textarea id="address" name="address" rows="3" required placeholder="ব্লক, রোড, হাউস নাম্বার"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">কত লিটার দুধ প্রয়োজন? *</label>
-                        <input type="number" id="quantity" name="quantity" min="1" required placeholder="যেমন: 2">
-                    </div>
-                    <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
-                </form>
-                <div class="order-note">
-                    📞 অর্ডার কনফার্ম করতে আমরা ফোন করবো।
+                <div class="form-group">
+                    <label for="name">আপনার নাম *</label>
+                    <input type="text" id="name" name="name" required placeholder="আপনার পূর্ণ নাম লিখুন">
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="phone">মোবাইল নাম্বার *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="০১XXXXXXXXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">বাসার ঠিকানা (বসুন্ধরা) *</label>
+                    <textarea id="address" name="address" rows="3" required placeholder="ব্লক, রোড, বাসা নম্বর"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">কত লিটার প্রয়োজন? *</label>
+                    <input type="number" id="quantity" name="quantity" min="1" required placeholder="লিটার সংখ্যা">
+                </div>
+
+                <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
+                
+                <p class="form-note">📞 অর্ডার কনফার্ম করতে আমরা ফোন করবো।</p>
+            </form>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">যোগাযোগ করুন</h2>
+            <h2>যোগাযোগ করুন</h2>
             <div class="contact-info">
                 <div class="contact-card">
-                    <div class="contact-icon">📞</div>
+                    <div class="icon">📞</div>
                     <h3>ফোন</h3>
-                    <p><a href="tel:+8801858508254">+880 1858-508254</a></p>
-                    <p><a href="tel:+8801775776473">+880 1775-776473</a></p>
+                    <a href="tel:+8801858508254">+880 1858-508254</a>
+                    <a href="tel:+8801775776473">+880 1775-776473</a>
+                    <a href="tel:+8801779493058">+880 1779-493058</a>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">📍</div>
+                    <div class="icon">📍</div>
                     <h3>এলাকা</h3>
                     <p>বসুন্ধরা রেসিডেনশিয়াল এরিয়া<br>ঢাকা</p>
                 </div>
@@ -921,61 +684,48 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>© 2026 Bashundhara Fresh Milk Delivery</p>
-            <p>বিশুদ্ধ দুধ, বিশ্বস্ত সেবা</p>
-        </div>
+        <p>&copy; 2026 Bashundhara Fresh Milk Delivery</p>
+        <p><strong>বিশুদ্ধ দুধ, বিশ্বস্ত সেবা</strong></p>
     </footer>
 
     <script>
-        // Form submission handler with WhatsApp integration
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        function handleSubmit(event) {
+            event.preventDefault();
             
+            const product = document.querySelector('input[name="product"]:checked').value;
+            const productName = product === 'milk' ? 'দুধ' : 'দই';
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const quantity = document.getElementById('quantity').value;
             
-            // Create WhatsApp message
-            const message = `🥛 *নতুন দুধের অর্ডার*\n\n` +
-                          `👤 নাম: ${name}\n` +
-                          `📞 ফোন: ${phone}\n` +
-                          `📍 ঠিকানা: ${address}\n` +
-                          `🥛 পরিমাণ: ${quantity} লিটার\n\n` +
-                          `দয়া করে অর্ডার কনফার্ম করুন।`;
-            
-            // WhatsApp number (replace with your actual number)
-            // Format: country code + number (without + or spaces)
-            const whatsappNumber = '8801775776473'; // WhatsApp contact number
-            
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
-            // Open WhatsApp in new tab
-            window.open(whatsappURL, '_blank');
-            
-            // Show success message
-            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার WhatsApp-এ পাঠানো হচ্ছে।\n\nপরিমাণ: ${quantity} লিটার`);
+            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার:\n${quantity} লিটার ${productName}\n\nআমরা শীঘ্রই ${phone} নম্বরে ফোন করে অর্ডার কনফার্ম করবো।`);
             
             // Reset form
-            this.reset();
-        });
+            event.target.reset();
+        }
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
         });
     </script>
 </body>
