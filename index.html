@@ -665,10 +665,10 @@
         <div class="container">
             <h2>দুধ ও দই'য়ের মূল্য</h2>
             <div class="price-card">
-                <div class="icon">💰</div>
+                <div class="icon"></div>
                 <div>প্রতি লিটার দুধ</div>
                 <div class="price">১০০৳</div>
-                <div style="margin-top: 2rem;">প্রতি হাঁড়ি দই</div>
+                <div style="margin-top: 2rem;">প্রতি হাঁড়ি দই</div>
                 <div class="price">২৮০৳/৩৫০৳</div>
                 <p style="margin-top: 1rem;">📍 শুধুমাত্র বসুন্ধরা আবাসিক এলাকায়</p>
             </div>
@@ -693,7 +693,7 @@
                         <div class="product-content">
                             <div class="product-icon">🍨</div>
                             <div class="product-name">দই </div>
-                            <div class="product-price">২৮০৳/৩৫০৳ হাঁড়ি</div>
+                            <div class="product-price">২৮০৳/৩৫০৳ হাঁড়ি</div>
                         </div>
                     </label>
                 </div>
@@ -720,7 +720,7 @@
 
                 <button type="submit" class="submit-button">অর্ডার সাবমিট করুন</button>
                 
-                <p class="form-note">📞 অর্ডার কনফার্ম করতে আমরা ফোন করবো।</p>
+                <p class="form-note">📞 আপনার অর্ডার WhatsApp এ পাঠানো হবে।</p>
             </form>
         </div>
     </section>
@@ -806,7 +806,20 @@
             
             const quantityText = selectedProduct === 'milk' ? `${quantity} লিটার` : `${quantity} হাঁড়ি`;
             
-            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার:\n${quantityText} ${productName}\n\nআমরা শীঘ্রই ${phone} নম্বরে ফোন করে অর্ডার কনফার্ম করবো।`);
+            // Create WhatsApp message
+            const message = `আসসালামু আলাইকুম!\n\n🛒 নতুন অর্ডার:\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📍 ঠিকানা: ${address}\n\n🥛 পণ্য: ${productName}\n📦 পরিমাণ: ${quantityText}\n\nঅনুগ্রহ করে অর্ডার কনফার্ম করুন।`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp URL with the specific number
+            const whatsappURL = `https://wa.me/8801775776473?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Show confirmation
+            alert(`ধন্যবাদ ${name}!\n\nআপনার অর্ডার WhatsApp এ পাঠানো হচ্ছে...`);
             
             // Reset form
             event.target.reset();
