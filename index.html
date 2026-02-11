@@ -102,7 +102,7 @@
             background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
             color: white;
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             animation: fadeIn 1s ease-out;
         }
 
@@ -116,9 +116,10 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             animation: slideUp 0.8s ease-out;
+            line-height: 1.2;
         }
 
         @keyframes slideUp {
@@ -133,9 +134,10 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             animation: slideUp 1s ease-out;
+            line-height: 1.6;
         }
 
         .cta-button {
@@ -510,30 +512,68 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
             .hero p {
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.8rem;
                 font-size: 1rem;
             }
 
             nav {
                 flex-direction: column;
                 text-align: center;
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+                flex-direction: column;
+                gap: 5px;
             }
 
             .nav-links {
                 margin-top: 1rem;
-                gap: 1rem;
+                gap: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .product-selection {
                 grid-template-columns: 1fr;
             }
 
+            section {
+                padding: 2rem 1rem;
+                margin: 1rem auto;
+            }
+
             section h2 {
-                font-size: 2rem;
+                font-size: 1.6rem;
+            }
+
+            .price-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .price-card .price {
+                font-size: 2.5rem;
+            }
+
+            .order-form {
+                padding: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
             }
         }
 
@@ -598,9 +638,7 @@
             <ul class="nav-links">
                 <li><a href="#home">হোম</a></li>
                 <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                <li><a href="#info">দুধের তথ্য</a></li>
-                <li><a href="#doi-info">দই এর তথ্য</a></li>
-                <li><a href="#price">মূল্য</a></li>
+                <li><a href="#info">পণ্যের তথ্য</a></li>
                 <li><a href="#order">অর্ডার করুন</a></li>
                 <li><a href="#contact">যোগাযোগ</a></li>
             </ul>
@@ -628,70 +666,65 @@
 
     <section id="info">
         <div class="container">
-            <h2>আমাদের দুধ কেন আলাদা?</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="icon">✅</div>
-                    <h3>১০০% খাঁটি ও ফ্রেশ দুধ</h3>
-                    <p>সম্পূর্ণ খাঁটি এবং তাজা দুধ</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">💧</div>
-                    <h3>কোনো ভেজাল নয়</h3>
-                    <p>পানি বা অন্য কোনো মিশ্রণ নেই</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🏥</div>
-                    <h3>স্বাস্থ্যসম্মত</h3>
-                    <p>পরিষ্কার পরিবেশে সংগ্রহ</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">👶</div>
-                    <h3>সবার জন্য নিরাপদ</h3>
-                    <p>শিশু ও বৃদ্ধদের জন্য উপযুক্ত</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🚚</div>
-                    <h3>হোম ডেলিভারি</h3>
-                    <p>প্রতিদিন আপনার দরজায়</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h2>আমাদের পণ্যের তথ্য</h2>
+            <div style="max-width: 900px; margin: 2rem auto;">
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    
+                    <!-- দুধের তথ্য -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: #667eea; margin-bottom: 1.5rem; font-size: 1.8rem; text-align: center;">🥛 আমাদের দুধ কেন আলাদা?</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div style="background: white; padding: 1.2rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
+                                <h4 style="color: #667eea; margin-bottom: 0.3rem; font-size: 1rem;">১০০% খাঁটি ও ফ্রেশ</h4>
+                                <p style="font-size: 0.85rem; color: #666;">সম্পূর্ণ খাঁটি এবং তাজা</p>
+                            </div>
+                            <div style="background: white; padding: 1.2rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💧</div>
+                                <h4 style="color: #667eea; margin-bottom: 0.3rem; font-size: 1rem;">কোনো ভেজাল নয়</h4>
+                                <p style="font-size: 0.85rem; color: #666;">পানি বা মিশ্রণ নেই</p>
+                            </div>
+                            <div style="background: white; padding: 1.2rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏥</div>
+                                <h4 style="color: #667eea; margin-bottom: 0.3rem; font-size: 1rem;">স্বাস্থ্যসম্মত</h4>
+                                <p style="font-size: 0.85rem; color: #666;">পরিষ্কার পরিবেশে সংগ্রহ</p>
+                            </div>
+                            <div style="background: white; padding: 1.2rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👶</div>
+                                <h4 style="color: #667eea; margin-bottom: 0.3rem; font-size: 1rem;">সবার জন্য নিরাপদ</h4>
+                                <p style="font-size: 0.85rem; color: #666;">শিশু ও বৃদ্ধদের জন্য</p>
+                            </div>
+                            <div style="background: white; padding: 1.2rem; border-radius: 10px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚚</div>
+                                <h4 style="color: #667eea; margin-bottom: 0.3rem; font-size: 1rem;">হোম ডেলিভারি</h4>
+                                <p style="font-size: 0.85rem; color: #666;">প্রতিদিন আপনার দরজায়</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <section id="doi-info">
-        <div class="container">
-            <h2>🍨 বগুড়ার আসল দই</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.2rem; line-height: 2; margin-bottom: 1.5rem;">
-                    বাংলাদেশের ঐতিহ্যবাহী বগুড়ার বিখ্যাত দই এখন বসুন্ধরায়! 
-                    সম্পূর্ণ খাঁটি দুধ থেকে তৈরি, ঐতিহ্যবাহী পদ্ধতিতে প্রস্তুতকৃত এই দই স্বাদে ও গুণে অতুলনীয়।
-                </p>
-                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                    <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">দই এর বৈশিষ্ট্য</h3>
-                    <ul style="list-style: none; padding: 0; text-align: left; max-width: 600px; margin: 0 auto;">
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ ১০০% খাঁটি গরুর দুধ থেকে তৈরি</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ কোনো প্রকার কেমিকেল বা প্রিজারভেটিভ মুক্ত</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ ঐতিহ্যবাহী মাটির হাঁড়িতে তৈরি</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ মিষ্টি ও টক স্বাদের নিখুঁত সমন্বয়</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ স্বাস্থ্যকর ও পুষ্টিগুণ সমৃদ্ধ</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">✓ তাজা অবস্থায় হোম ডেলিভারি</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <!-- বিভাজন রেখা -->
+                    <div style="height: 2px; background: linear-gradient(90deg, transparent, #667eea, transparent); margin: 2rem 0;"></div>
 
-    <section id="price">
-        <div class="container">
-            <h2>দুধ ও দই'য়ের মূল্য</h2>
-            <div class="price-card">
-                <div class="icon">🥛</div>
-                <div>প্রতি লিটার দুধ</div>
-                <div class="price">১০০৳</div>
-                <div style="margin-top: 2rem;">প্রতি হাঁড়ি দই</div>
-                <div class="price">২৮০৳/৩৫০৳</div>
-                <p style="margin-top: 1rem;">📍 শুধুমাত্র বসুন্ধরা আবাসিক এলাকায়</p>
+                    <!-- দই এর তথ্য -->
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.8rem; text-align: center;">🍨 বগুড়ার আসল দই</h3>
+                        <p style="text-align: center; font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #555;">
+                            বাংলাদেশের ঐতিহ্যবাহী বগুড়ার বিখ্যাত দই এখন বসুন্ধরায়! সম্পূর্ণ খাঁটি দুধ থেকে তৈরি, ঐতিহ্যবাহী পদ্ধতিতে প্রস্তুতকৃত এই দই স্বাদে ও গুণে অতুলনীয়।
+                        </p>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px;">
+                            <h4 style="color: #667eea; margin-bottom: 1rem; font-size: 1.2rem; text-align: center;">দই এর বৈশিষ্ট্য</h4>
+                            <ul style="list-style: none; padding: 0; text-align: left;">
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ ১০০% খাঁটি গরুর দুধ থেকে তৈরি</li>
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ কোনো প্রকার কেমিকেল বা প্রিজারভেটিভ মুক্ত</li>
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ ঐতিহ্যবাহী মাটির হাঁড়িতে তৈরি</li>
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ মিষ্টি ও টক স্বাদের নিখুঁত সমন্বয়</li>
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ স্বাস্থ্যকর ও পুষ্টিগুণ সমৃদ্ধ</li>
+                                <li style="padding: 0.4rem 0; font-size: 0.95rem; color: #555;">✓ তাজা অবস্থায় হোম ডেলিভারি</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -841,23 +874,6 @@
                     setTimeout(() => {
                         successMessage.classList.remove('show');
                     }, 5000);
-                    
-                    // Also send to WhatsApp as backup
-                    const product = formData.get('product');
-                    const name = formData.get('name');
-                    const phone = formData.get('phone');
-                    const address = formData.get('address');
-                    const quantity = formData.get('quantity');
-                    
-                    const quantityText = product === 'দুধ' ? `${quantity} লিটার` : `${quantity} হাঁড়ি`;
-                    const message = `আসসালামু আলাইকুম!\n\n🛒 নতুন অর্ডার:\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📍 ঠিকানা: ${address}\n\n🥛 পণ্য: ${product}\n📦 পরিমাণ: ${quantityText}\n\nঅনুগ্রহ করে অর্ডার কনফার্ম করুন।`;
-                    const encodedMessage = encodeURIComponent(message);
-                    const whatsappURL = `https://wa.me/8801775776473?text=${encodedMessage}`;
-                    
-                    // Open WhatsApp in new tab
-                    setTimeout(() => {
-                        window.open(whatsappURL, '_blank');
-                    }, 1000);
                 } else {
                     alert('দুঃখিত! অর্ডার সাবমিট করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
                 }
